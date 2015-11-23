@@ -1,4 +1,3 @@
 ---
 - name: install fluentd
-  environment: proxy_env
   gem: name=fluentd state=present
