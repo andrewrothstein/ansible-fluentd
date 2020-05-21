@@ -1,3 +1,19 @@
 ---
-- name: install fluentd
-  gem: name=fluentd state=present
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: install fluentd gem
+  become: yes
+  become_user: root
+  gem:
+    user_install: no
+    name: fluentd
+    version: '{{ fluentd_ver }}'
+    state: present

@@ -1,24 +1,38 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: fluentd role
-  company: BlackRock
+  description: installs the fluentd gem
+  company: BlackRock Financial Management
   license:
     - MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.0
   platforms:
     - name: EL
       versions:
-        - 7
+        - all
     - name: Fedora
       versions:
-        - 21
+        - all
     - name: Ubuntu
       versions:
-        - trusty
-
-  categories:
+        - all
+    - name: Alpine
+      versions:
+        - all
+    - name: Archlinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - buster
+        - jessie
+        - stretch
+  galaxy_tags:
     - development
+  role_name: fluentd
 
-dependencies: []
-  
+dependencies:
+  - role: andrewrothstein.ruby
+    version: v1.0.1
+  - role: andrewrothstein.gcc-toolbox
+    version: v1.1.0
