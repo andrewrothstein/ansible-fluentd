@@ -10,13 +10,7 @@ galaxy_info:
     - name: EL
       versions:
         - all
-    - name: Fedora
-      versions:
-        - all
     - name: Ubuntu
-      versions:
-        - all
-    - name: Alpine
       versions:
         - all
     - name: Archlinux
@@ -25,8 +19,6 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-        - jessie
-        - stretch
   galaxy_tags:
     - development
   role_name: fluentd
